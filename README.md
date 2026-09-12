@@ -3,9 +3,9 @@
 ## Summary
 
 A privacy-safe example of an Obsidian travel-planning vault. It demonstrates structured
-place and trip notes, reusable templates, YAML frontmatter, map views, and a workflow that
-syncs smoothly between desktop and iPhone with Obsidian Sync. The locations are real but
-intentionally unrelated to the author's personal travel history.
+place notes, YAML frontmatter, an embedded map view, and a workflow that can sync between
+desktop and iPhone with Obsidian Sync. The locations are real and deliberately selected away
+from the author's home area.
 
 ## Status
 
@@ -19,24 +19,61 @@ notes stay consistent and easy to navigate as a vault grows.
 
 ## Quick Start
 
-Clone the repository and open the vault folder directly in Obsidian — no build step or
-installation is required.
+Clone the repository, then open its `Travel/` directory as an Obsidian vault. There is no
+build step.
 
 ```bash
 git clone https://github.com/kevinpinscoe/obsidian-travel-vault-example.git
 ```
 
-> **Note:** This repository is not yet populated with the redacted example content. The
-> vault folder, its notes, and its templates will be added once a privacy-reviewed copy of
-> the source vault is ready.
+On first open, enable community plugins if Obsidian asks, then confirm that the **Maps**
+plugin is enabled in **Settings → Community plugins**. Open `home.md` to see the embedded
+map.
+
+## Repository Layout
+
+```text
+obsidian-travel-vault-example/
+├── Travel/                         # Open this directory as the Obsidian vault
+│   ├── .obsidian/                   # Portable vault settings and Maps plugin
+│   ├── home.md                      # Vault landing page and embedded map
+│   ├── Places Map.base              # Bases map and coordinates table
+│   └── places/                      # Places, organized by state and city
+│       ├── FL/Orlando/
+│       ├── MD/Baltimore/
+│       ├── NC/Asheville/
+│       └── PA/Butler/
+├── .gitignore                       # Excludes local Obsidian and agent state
+├── LICENSE                          # CC BY 4.0 for vault content
+├── LICENSE-CODE                     # MIT for scripts and plugin code
+├── README.md                        # Repository guide
+├── THIRD-PARTY-NOTICES.md            # Bundled Maps plugin attribution
+└── mise.toml                        # Optional development-tool versions
+```
+
+Each sample city demonstrates the `places/<ST>/<City>/` layout and its four category
+indexes: places to eat, visit, shop, and stay.
 
 ## Requirements
 
-- [Obsidian](https://obsidian.md/)
-- Required community plugins will be documented here once the redacted vault content is in
-  place.
-- Obsidian Sync is optional and not required to use this vault — configure it with your own
-  account if you want cross-device sync.
+- [Obsidian 1.13.1 or later](https://obsidian.md/)
+- The official [Maps community plugin](https://github.com/obsidianmd/obsidian-maps), included
+  in `.obsidian/plugins/maps/` and enabled by the vault configuration
+- Obsidian Sync is optional. Configure it with your own account and remote vault; this
+  repository contains no account, device, workspace, or Sync credentials.
+
+## Desktop and iPhone Sync
+
+1. Open `Travel/` on the desktop and configure Obsidian Sync for your own remote vault.
+2. In Obsidian Sync settings, enable both **Installed community plugin list** and **Active
+   community plugin list** so Maps is carried to the iPhone.
+3. Open or create the same remote vault in Obsidian on the iPhone and let the initial sync
+   finish. Enable community plugins if prompted.
+4. On each device, open `home.md`. Its map should display every venue with a complete
+   coordinate pair. A venue without coordinates is intentionally absent.
+
+Maps supports mobile Obsidian, but test this short checklist with your own Sync account after
+cloning: this public repository cannot include or exercise a personal Sync remote.
 
 ## How It Works
 
@@ -44,21 +81,17 @@ The vault organizes travel planning around a small set of note types:
 
 - **Place notes** — one note per location, holding structured facts (address, coordinates,
   notes) in YAML frontmatter so they can be queried and displayed consistently.
-- **Trip notes** — link together the places visited on a given trip, giving each trip its
-  own itinerary and narrative.
-- **Templates** — reusable note skeletons for places and trips, so every new note starts
-  with the same structure and frontmatter fields.
 - **Map views** — place notes with coordinates in their frontmatter can be rendered on a
-  map, giving a visual view of where a trip goes.
-- **Cross-device sync (optional)** — the same vault structure works whether edited on
-  desktop or mobile; Obsidian Sync keeps both in sync when configured.
+  map through Obsidian Bases and the Maps plugin.
+- **Cross-device sync (optional)** — the same configuration can travel between desktop and
+  iPhone through Obsidian Sync when its plugin-list settings are enabled.
 
 ## Security
 
-This vault contains no personal travel history or sensitive personal-location data. The
-place names and coordinates included are real, but deliberately unrelated to the author's
-actual travel history, and no booking references, record locators, payment details, or
-other personal information appear anywhere in the vault.
+This vault contains no home-location data, private itineraries, booking references, record
+locators, payment details, or account credentials. The place names, coordinates, favorites,
+ratings, and selected visit dates are real, but the locations are deliberately chosen away
+from the author's home area.
 
 ## Ownership and Support
 
@@ -71,3 +104,5 @@ This repository uses a dual license:
 - **Vault content** (notes, templates, and sample place data) is licensed under the
   [Creative Commons Attribution 4.0 International License](LICENSE) (CC BY 4.0).
 - **Scripts and plugin code** are licensed under the [MIT License](LICENSE-CODE).
+- The bundled official Maps plugin remains copyright Obsidian and MIT-licensed; see
+  [third-party notices](THIRD-PARTY-NOTICES.md).

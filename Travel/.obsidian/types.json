@@ -1,0 +1,23 @@
+{
+  "types": {
+    "rating": "number",
+    "latitude": "number",
+    "longitude": "number",
+    "drive_distance_miles": "number",
+    "drive_time_minutes": "number",
+    "last_visited": "date",
+    "trip_date": "date",
+    "start_date": "date",
+    "end_date": "date",
+    "visited": "checkbox",
+    "favorite": "checkbox",
+    "publish": "checkbox",
+    "pkm_private": "checkbox",
+    "reservation_required": "checkbox",
+    "themes": "multitext",
+    "amtrak_routes": "multitext",
+    "counties": "multitext",
+    "postal_code": "text",
+    "updated": "text"
+  }
+}

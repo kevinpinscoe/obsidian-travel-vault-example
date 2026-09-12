@@ -1,0 +1,45 @@
+# Places Map — embedded in home.md
+#
+# Maps venues with a complete, verified latitude/longitude pair. Notes without
+# coordinates are intentionally excluded; a city-centroid fallback would claim
+# more precision than the venue data provides.
+
+filters:
+  and:
+    - file.inFolder("places")
+    - 'place_type == "city" || place_type == "venue"'
+    - "latitude != null"
+    - "longitude != null"
+
+formulas:
+  coordinates: "[latitude, longitude]"
+  marker_icon: 'if(place_type == "city", "map-pin", if(category == "restaurant", "utensils", if(category == "attraction", "landmark", if(category == "shopping", "shopping-cart", if(category == "lodging", "hotel", "map-pin")))))'
+  marker_color: 'if(place_type == "city", "blue", if(category == "restaurant", "orange", if(category == "attraction", "green", if(category == "shopping", "purple", if(category == "lodging", "red", "gray")))))'
+
+properties:
+  formula.coordinates:
+    displayName: Coordinates
+  note.place_type:
+    displayName: Kind
+  note.city:
+    displayName: City
+
+views:
+  - type: map
+    name: Map
+    coordinates: formula.coordinates
+    markerIcon: formula.marker_icon
+    markerColor: formula.marker_color
+    center: "[38.25, -79.5]"
+    defaultZoom: 5
+    minZoom: 3
+    maxZoom: 18
+    mapHeight: 500
+  - type: table
+    name: Coordinates
+    order:
+      - file.name
+      - note.place_type
+      - note.city
+      - note.state
+      - formula.coordinates

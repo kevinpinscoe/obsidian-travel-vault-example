@@ -1,0 +1,9 @@
+{
+  "vimMode": false,
+  "newFileLocation": "current",
+  "attachmentFolderPath": "attachments",
+  "alwaysUpdateLinks": true,
+  "userIgnoreFilters": [
+    "ai-wt/"
+  ]
+}
