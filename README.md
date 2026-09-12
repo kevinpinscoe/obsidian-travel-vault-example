@@ -3,9 +3,9 @@
 ## Summary
 
 A privacy-safe example of an Obsidian travel-planning vault. It demonstrates structured
-place notes, YAML frontmatter, an embedded map view, and a workflow that can sync between
-desktop and iPhone with Obsidian Sync. The locations are real and deliberately selected away
-from the author's home area.
+place and trip notes, reusable templates, YAML frontmatter, an embedded map view, and a
+workflow that can sync between desktop and iPhone with Obsidian Sync. The locations are real
+and deliberately selected away from the author's home area.
 
 ## Status
 
@@ -28,37 +28,49 @@ git clone https://github.com/kevinpinscoe/obsidian-travel-vault-example.git
 
 On first open, enable community plugins if Obsidian asks, then confirm that the **Maps**
 plugin is enabled in **Settings → Community plugins**. Open `home.md` to see the embedded
-map.
+map. The core **Templates** plugin is also enabled, pointed at `templates/`.
 
 ## Repository Layout
 
 ```text
 obsidian-travel-vault-example/
-├── Travel/                         # Open this directory as the Obsidian vault
-│   ├── .obsidian/                   # Portable vault settings and Maps plugin
-│   ├── home.md                      # Vault landing page and embedded map
-│   ├── Places Map.base              # Bases map and coordinates table
-│   └── places/                      # Places, organized by state and city
-│       ├── FL/Orlando/
-│       ├── MD/Baltimore/
-│       ├── NC/Asheville/
-│       └── PA/Butler/
-├── .gitignore                       # Excludes local Obsidian and agent state
-├── LICENSE                          # CC BY 4.0 for vault content
-├── LICENSE-CODE                     # MIT for scripts and plugin code
-├── README.md                        # Repository guide
-├── THIRD-PARTY-NOTICES.md            # Bundled Maps plugin attribution
-└── mise.toml                        # Optional development-tool versions
+├── Travel/                          # Open this directory as the Obsidian vault
+│   ├── .obsidian/                    # Portable vault settings, Maps plugin, Templates config
+│   ├── home.md                       # Vault landing page and embedded map
+│   ├── Places Map.base               # Bases map and coordinates table
+│   ├── places/                       # Places, organized by state and city
+│   │   ├── FL/Orlando/
+│   │   ├── MD/Baltimore/
+│   │   ├── NC/Asheville/
+│   │   ├── NJ/Atlantic City/
+│   │   ├── NJ/Margate City/
+│   │   ├── PA/Butler/
+│   │   ├── TN/Gatlinburg/
+│   │   ├── TN/Pigeon Forge/
+│   │   └── VA/Charlottesville/
+│   ├── templates/                    # Note templates (place, trip, category indexes, etc.)
+│   └── trips/                        # Day-trip and trip-group notes, organized by year
+├── .gitignore                        # Excludes local Obsidian and agent state
+├── LICENSE                           # CC BY 4.0 for vault content
+├── LICENSE-CODE                      # MIT for scripts and plugin code
+├── README.md                         # Repository guide
+├── THIRD-PARTY-NOTICES.md             # Bundled Maps plugin attribution
+└── mise.toml                         # Optional development-tool versions
 ```
 
 Each sample city demonstrates the `places/<ST>/<City>/` layout and its four category
-indexes: places to eat, visit, shop, and stay.
+indexes: places to eat, visit, shop, and stay. `trips/2026/` includes a two-day sample trip
+grouped under a `trip-group` note to demonstrate the trip templates end to end.
 
 ## Requirements
 
 - [Obsidian 1.13.1 or later](https://obsidian.md/)
 - The official [Maps community plugin](https://github.com/obsidianmd/obsidian-maps), included
   in `.obsidian/plugins/maps/` and enabled by the vault configuration
+- The core Templates plugin, enabled and pointed at `templates/`. Two templates
+  (`new-city.md`, `trip.md`) are Templater scripts included for reference only — the
+  Templater community plugin is not installed in this example vault, so they cannot be run
+  as-is.
 - Obsidian Sync is optional. Configure it with your own account and remote vault; this
   repository contains no account, device, workspace, or Sync credentials.
 
@@ -81,6 +93,10 @@ The vault organizes travel planning around a small set of note types:
 
 - **Place notes** — one note per location, holding structured facts (address, coordinates,
   notes) in YAML frontmatter so they can be queried and displayed consistently.
+- **Trip notes** — one note per travel day, linking to the places visited; a multi-day trip
+  is grouped under a trip-group note that holds the shared overview.
+- **Templates** — reusable note skeletons in `templates/` for places, category indexes,
+  states, trips, and trip groups, so every new note starts with the same frontmatter fields.
 - **Map views** — place notes with coordinates in their frontmatter can be rendered on a
   map through Obsidian Bases and the Maps plugin.
 - **Cross-device sync (optional)** — the same configuration can travel between desktop and
