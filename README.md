@@ -49,7 +49,8 @@ obsidian-travel-vault-example/
 │   │   ├── TN/Pigeon Forge/
 │   │   └── VA/Charlottesville/
 │   ├── templates/                    # Note templates (place, trip, category indexes, etc.)
-│   └── trips/                        # Day-trip and trip-group notes, organized by year
+│   ├── trips/                        # Day-trip and trip-group notes, organized by year
+│   └── RUNBOOK.md                    # How to open, extend, and troubleshoot the vault
 ├── .gitignore                        # Excludes local Obsidian and agent state
 ├── LICENSE                           # CC BY 4.0 for vault content
 ├── LICENSE-CODE                      # MIT for scripts and plugin code
@@ -67,10 +68,10 @@ grouped under a `trip-group` note to demonstrate the trip templates end to end.
 - [Obsidian 1.13.1 or later](https://obsidian.md/)
 - The official [Maps community plugin](https://github.com/obsidianmd/obsidian-maps), included
   in `.obsidian/plugins/maps/` and enabled by the vault configuration
-- The core Templates plugin, enabled and pointed at `templates/`. Two templates
-  (`new-city.md`, `trip.md`) are Templater scripts included for reference only — the
-  Templater community plugin is not installed in this example vault, so they cannot be run
-  as-is.
+- The core Templates plugin, enabled and pointed at `templates/`. Three templates
+  (`new-city.md`, `place.md`, `trip.md`) are Templater scripts included for reference only —
+  the Templater community plugin is not installed in this example vault, so they cannot be run
+  as-is. See `Travel/RUNBOOK.md` for the full list of what each template needs.
 - Obsidian Sync is optional. Configure it with your own account and remote vault; this
   repository contains no account, device, workspace, or Sync credentials.
 
@@ -112,6 +113,8 @@ from the author's home area.
 ## Ownership and Support
 
 Maintained by Kevin P. Inscoe. Provided as a reference example with no support commitment.
+See [`Travel/RUNBOOK.md`](Travel/RUNBOOK.md) for how to open, extend, and troubleshoot the
+vault.
 
 ## License
 
