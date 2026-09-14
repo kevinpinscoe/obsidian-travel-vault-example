@@ -1,3 +1,11 @@
+---
+title: RUNBOOK.md — Obsidian Travel Vault Example
+tags: [runbook, operations]
+vault_link: runbooks/home-kinscoe-projects-public-obsidian-travel-vault-example-travel.md
+source_path: /home/kinscoe/Projects/public/obsidian-travel-vault-example/Travel/RUNBOOK.md
+---
+
+> 📓 Indexed in the PKM knowledge vault at `runbooks/home-kinscoe-projects-public-obsidian-travel-vault-example-travel.md` (symlink → this file).
 # RUNBOOK.md — Obsidian Travel Vault Example
 
 ## Metadata
