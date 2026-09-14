@@ -34,6 +34,8 @@ map. The core **Templates** plugin is also enabled, pointed at `templates/`.
 
 ```text
 obsidian-travel-vault-example/
+├── assets/
+│   └── screenshots/                  # README images (mobile Sync screenshots)
 ├── Travel/                          # Open this directory as the Obsidian vault
 │   ├── .obsidian/                    # Portable vault settings, Maps plugin, Templates config
 │   ├── home.md                       # Vault landing page and embedded map
@@ -87,6 +89,15 @@ grouped under a `trip-group` note to demonstrate the trip templates end to end.
 
 Maps supports mobile Obsidian, but test this short checklist with your own Sync account after
 cloning: this public repository cannot include or exercise a personal Sync remote.
+
+In practice, trip planning happens on the desktop, and Obsidian Sync carries that vault to the
+iPhone for use during the actual trip. Below is the same `home.md` map on mobile: zoomed out to
+the full set of sample places, then filtered to a single city while on the road.
+
+<p>
+  <img src="assets/screenshots/mobile-map-regional.jpg" alt="Obsidian mobile map view showing all sample places across several states" width="260">
+  <img src="assets/screenshots/mobile-map-filtered.jpg" alt="Obsidian mobile map view filtered to Charlottesville, VA" width="260">
+</p>
 
 ## How It Works
 
